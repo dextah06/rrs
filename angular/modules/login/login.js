@@ -12,7 +12,7 @@ angular.module('login-module', []).service('loginService', function($http, $wind
 
 			if (response.data['login']) {
 				scope.views.incorrect = false;
-				$window.location.href = 'dashboard.html';
+				$window.location.href = 'index.html';
 			} else {
 				scope.views.incorrect = true;
 			}

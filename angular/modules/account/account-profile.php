@@ -1,31 +1,42 @@
 <?php
 
-header("Content-Type: application/json");
-
-$_POST = json_decode(file_get_contents('php://input'), true);
-
 require_once '../../../db.php';
+// require_once '../../../system_privileges.php';
+// require_once '../../../classes.php';
 
 session_start();
 
-header("Content-Type: application/json");
+if (!isset($_SESSION['id'])) header('X-Error-Message: Session timeout', true, 500);
 
-$con = new pdo_db();
+$con = new pdo_db("users");
 
-$sql = "SELECT id, CONCAT(firstname, ' ', lastname) fullname, username, user_type FROM users WHERE id = $_SESSION[id]";
+$account = $con->get(["id"=>$_SESSION['id']],["CONCAT(firstname, ' ', lastname) fullname"]);
 
-$staff = $con->getData($sql);
+$avatar = "angular/modules/account/avatar.png";
+/* 
+$con->table = "groups";
 
-$dir = "pictures/";
-$avatar = $dir."avatar.png";
+$group_privileges = $con->get(array("group_id"=>$account[0]['groups']),["privileges"]);
 
-$picture = $dir.$staff[0]['id'].".jpg";
-if (!file_exists("../".$picture)) $picture = $avatar;
+$pages_access = [];
+if (count($group_privileges)) {
+	if ($group_privileges[0]['privileges']!=NULL) {
 
-$staff[0]['picture'] = $picture;
+		$privileges_obj = new privileges(system_privileges,$group_privileges[0]['privileges']);
+		$pages_access = $privileges_obj->getPagesPrivileges();
 
-$_SESSION['account'] = $staff[0];
+	};
+}
 
-echo json_encode($staff[0]);
+$account[0]['pages_access'] = $pages_access; */
+
+$profile = array(
+	"fullname"=>$account[0]['fullname'],
+	"picture"=>$avatar,
+	// "groups"=>$account[0]['groups'],
+	// "pages_access"=>$pages_access,
+);
+
+echo json_encode($profile);
 
 ?>

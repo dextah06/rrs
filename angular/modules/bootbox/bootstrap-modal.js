@@ -36,17 +36,21 @@ angular.module('bootstrap-modal',[]).service('bootstrapModal', function($compile
 	
 	};
 	
-	this.box = function(scope,title,content,init) {
+	this.box = function(scope,title,content,onOk) {
 
-		var dialog = bootbox.alert({
+		var dialog = bootbox.confirm({
 			title: title,
 			message: 'Loading content...',
 			buttons: {
-				ok: {
+				cancel: {
 					label: 'Close',
 					className: 'btn-danger'
+				},
+				confirm: {
+					label: 'Ok',
+					className: 'btn-success'
 				}
-			},			
+			},
 			callback: function (result) {
 				if (result) {
 					return onOk(scope);
@@ -55,13 +59,11 @@ angular.module('bootstrap-modal',[]).service('bootstrapModal', function($compile
 		});
 		
 		dialog.init(function() {
-			dialog.find('.bootbox-body').load(content,function() {
-				$compile($('.bootbox-body')[0])(scope);
-				$timeout(function() { init(); });
-			});
+			dialog.find('.bootbox-body').load(content);
+			$timeout(function() { $compile($('.bootbox-body')[0])(scope); }, 500);
 		});
-		
-	};	
+	
+	};
 	
 	this.box2 = function(scope,title,content,onOk) {
 

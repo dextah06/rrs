@@ -30,6 +30,12 @@
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="css/animate.css">
+	 <!-- summernote CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/summernote/summernote.css">
+    <!-- Range Slider CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/themesaller-forms.css">
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="css/normalize.css">
@@ -40,8 +46,27 @@
     <!-- mCustomScrollbar CSS
 		============================================ -->
     <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- Notika icon CSS
+    <!-- Notika icon CSS-->
+	<link rel="stylesheet" href="css/notika-custom-icon.css">
+		
+		  <!-- bootstrap select CSS
 		============================================ -->
+    <link rel="stylesheet" href="css/bootstrap-select/bootstrap-select.css">
+    <!-- datapicker CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/datapicker/datepicker3.css">
+    <!-- Color Picker CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/color-picker/farbtastic.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/chosen/chosen.css">
+    <!-- notification CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/notification/notification.css">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/dropzone/dropzone.css">
     <link rel="stylesheet" href="css/notika-custom-icon.css">
     <!-- Data Table JS
 		============================================ -->
@@ -389,12 +414,6 @@
                                         <li><a href="area-charts.html">Area Charts</a></li>
                                     </ul>
                                 </li>
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Normal Table</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
                                 <li><a data-toggle="collapse" data-target="#demo" href="#">Forms</a>
                                     <ul id="demo" class="collapse dropdown-header-top">
                                         <li><a href="form-elements.html">Form Elements</a></li>
@@ -456,21 +475,19 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a>
+                        <li><a href="index.html"><i class="notika-icon notika-house"></i> Home</a>
                         </li>
-                        <li><a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-mail"></i> Email</a>
+                        <li class="active"><a href="students.html"><i class="notika-icon notika-support"></i> Students</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Interface"><i class="notika-icon notika-edit"></i> Interface</a>
+                        <li><a href="s.html"><i class="notika-icon notika-file"></i> Disciplinary Records</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> Charts</a>
+                        <li><a data-toggle="tab" href="#grades"><i class="notika-icon notika-success"></i> Semestral Grades</a>
                         </li>
-                        <li class="active"><a data-toggle="tab" href="#Tables"><i class="notika-icon notika-windows"></i> Tables</a>
+                        <li><a data-toggle="tab" href="#forms"><i class="notika-icon notika-form"></i> Forms</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> Forms</a>
+                        <li><a data-toggle="tab" href="#maintenance"><i class="notika-icon notika-settings"></i> Maintenance</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Appviews"><i class="notika-icon notika-app"></i> App views</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Page"><i class="notika-icon notika-support"></i> Pages</a>
+                        <li><a data-toggle="tab" href="#officers"><i class="notika-icon notika-support"></i> Officers</a>
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
@@ -528,14 +545,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="Tables" class="tab-pane active notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="normal-table.html">Normal Table</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
+                   
                         <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="form-elements.html">Form Elements</a>
@@ -594,15 +604,11 @@
     <!-- Main Menu area End-->
 	
     <!-- Data Table area Start-->
-		<div class="content">
+		<div class="data-table-area">
 			<div class="container">
 
 				<!-- Page-Title -->
-				<div class="row">
-					<div class="col-sm-12">
-						<h4 class="page-title">Students</h4>
-					</div>
-				</div><br>
+			
 				<div class="row">
 					<div id="content"></div>
 			</div>
@@ -668,12 +674,53 @@
     <script src="js/knob/jquery.knob.js"></script>
     <script src="js/knob/jquery.appear.js"></script>
     <script src="js/knob/knob-active.js"></script>
+	<!-- Input Mask JS
+		============================================ -->
+    <script src="js/jasny-bootstrap.min.js"></script>
+	<!-- icheck JS
+		============================================ -->
+    <script src="js/icheck/icheck.min.js"></script>
+    <script src="js/icheck/icheck-active.js"></script>
+	<!--  wave JS
+		============================================ -->
+	<script src="js/wave/waves.min.js"></script>
+    <script src="js/wave/wave-active.js"></script>
+	 <!-- rangle-slider JS
+		============================================ -->
+    <script src="js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+    <script src="js/rangle-slider/rangle-active.js"></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/datapicker/datepicker-active.js"></script>
     <!--  Chat JS
 		============================================ -->
     <script src="js/chat/jquery.chat.js"></script>
     <!--  todo JS
 		============================================ -->
     <script src="js/todo/jquery.todo.js"></script>
+	 <!-- bootstrap select JS
+		============================================ -->
+    <script src="js/bootstrap-select/bootstrap-select.js"></script>
+    <!--  color-picker JS
+		============================================ -->
+    <script src="js/color-picker/farbtastic.min.js"></script>
+    <script src="js/color-picker/color-picker.js"></script>
+    <!--  notification JS
+		============================================ -->
+    <script src="js/notification/bootstrap-growl.min.js"></script>
+    <script src="js/notification/notification-active.js"></script>
+    <!--  summernote JS
+		============================================ -->
+    <script src="js/summernote/summernote-updated.min.js"></script>
+    <script src="js/summernote/summernote-active.js"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src="js/dropzone/dropzone.js"></script>
+	<!--  chosen JS
+		============================================ -->
+    <script src="js/chosen/chosen.jquery.js"></script>
 	<!--  wave JS
 		============================================ -->
     <script src="js/wave/waves.min.js"></script>

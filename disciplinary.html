@@ -86,7 +86,7 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body ng-app="student" ng-controller="studentCtrl" account-profile>
+<body ng-app="disciplinary" ng-controller="disciplinaryCtrl" account-profile>
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -241,9 +241,9 @@
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                         <li><a href="index.html"><i class="notika-icon notika-house"></i> Home</a>
                         </li>
-                        <li class="active"><a href="students.html"><i class="notika-icon notika-support"></i> Students</a>
+                        <li><a href="students.html"><i class="notika-icon notika-support"></i> Students</a>
                         </li>
-                        <li><a href="disciplinary.html"><i class="notika-icon notika-file"></i> Disciplinary Records</a>
+                        <li class="active"><a href="disciplinary.html"><i class="notika-icon notika-file"></i> Disciplinary Records</a>
                         </li>
                         <li><a href="semestral.html"><i class="notika-icon notika-success"></i> Semestral Grades</a>
                         </li>
@@ -253,10 +253,22 @@
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        
-                       
-                       
-                       
+                        <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                            </ul>
+                        </div>
+                        <div id="students" class="tab-pane notika-tab-menu-bg animated flipInX"><a href="menu.html"></a>
+                            <ul class="notika-main-menu-dropdown">
+                            </ul>
+                        </div>
+                        <a href="asd.html"><div id="records" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                            </ul>
+                        </div></a>
+                        <div id="grades" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                            </ul>
+                        </div>
                         <div id="forms" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add.html">Adding Form</a>
@@ -449,10 +461,10 @@
 	<script src="angular/modules/validation/validate.js"></script>
 	<script src="angular/modules/post/window-open-post.js"></script>
 	<script src="modules/snapshot.js"></script>		
-	<script src="modules/students.js"></script>
+	<script src="modules/disciplinary.js"></script>
 
 	<!-- controller -->
-	<script src="controllers/students.js"></script>
+	<script src="controllers/disciplinary.js"></script>
 	
 </body>
 

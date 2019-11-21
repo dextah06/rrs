@@ -2,14 +2,15 @@
 	<div class="panel">
 		<div class="panel-heading">
 			<h4><i class="icon-layers"></i> List
-			<button class="btn btn-primary pull-right" ng-click="app.curriculum(this)">Add</button>
+			<button class="btn btn-primary notika-btn-primary btn-lg pull-right" ng-click="app.curriculum(this)">Add</button>
 			</h4>
+			<br>
 		</div>
-		<div class="panel-body">
-			<table id="curriculums" class="table table-striped table-bordered">
+		<div class="table-responsive">
+			<table id="adds" class="table table-striped">
 			  <thead>
 				<tr>
-				  <th>No.</th>
+				 <th>No.</th>
 				  <th>Course</th>
 				  <th>Year & Semester</th>
 				  <th>Actions</th>
@@ -26,6 +27,14 @@
 				  </td>
 				</tr>
 			  </tbody>
+			   <tfoot>
+                  <tr>
+                  <th>No.</th>
+				  <th>Course</th>
+				  <th>Year & Semester</th>
+				  <th>Actions</th>
+                  </tr>
+                  </tfoot>
 			</table>
 		</div>
 	</div>

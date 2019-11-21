@@ -4,7 +4,7 @@
 		<div class="row">
 				<div class="col-lg-12">
 					<button class="btn btn-danger notika-btn-danger btn-lg pull-right" ng-click="app.cancel(this)">{{btns.cancel.label}}</button>
-					<button class="btn btn-success notika-btn-success btn-lg pull-right" style="margin-right: 5px;" ng-click="app.edit(this)">Edit</button>
+					<button class="btn btn-primary notika-btn-primary btn-lg pull-right" style="margin-right: 5px;" ng-click="app.edit(this)">Edit</button>
 					<button class="btn btn-success notika-btn-success btn-lg pull-right" ng-disabled="btns.ok.btn" style="margin-right: 5px;" ng-click="app.save(this)">{{btns.ok.label}}</button>
 				</div>
 			</div>
@@ -12,14 +12,14 @@
 				<h4 class="m-t-0 header-title"><b>Student's Personal Information</b></h4>
 				<hr>
 				<div class="row">
-					<div class="col-lg-4">
-					</div>
-					<div class="col-lg-4">
-					</div>
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.id_number.$touched && formHolder.enrollment.id_number.$invalid}">
 						<label>ID Number</label>
 						<input type="text" class="form-control" name="id_number" ng-model="enrollment.id_number" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.id_number.$touched && formHolder.enrollment.id_number.$invalid">ID number is required</span>
+					</div>
+					<div class="col-lg-4">
+					</div>
+					<div class="col-lg-4">
 					</div>
 				</div>
 				<div class="row">
@@ -42,7 +42,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12 form-group" ng-class="{'has-error': formHolder.enrollment.home_address.$touched && formHolder.enrollment.home_address.$invalid}">
-						<label>Home Address</label>
+						<label>Address</label>
 						<input type="text" class="form-control" name="home_address" ng-model="enrollment.home_address" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.home_address.$touched && formHolder.enrollment.home_address.$invalid">Home Address is required</span>
 					</div>
@@ -52,6 +52,11 @@
 						<label>Date of Birth</label>
 						<input type="date" class="form-control" name="dob" ng-model="enrollment.dob" ng-disabled="btns.ok.btn" ng-change="app.dob(this)" required>
 						<span class="help-block" ng-show="formHolder.enrollment.dob.$touched && formHolder.enrollment.dob.$invalid">Date of Birth is required</span>
+					</div>
+					<div class="col-lg-2 form-group" ng-class="{'has-error': formHolder.enrollment.age.$touched && formHolder.enrollment.age.$invalid}">
+						<label>Age</label>
+						<input type="text" class="form-control" name="age" ng-model="enrollment.age" disabled>
+						<span class="help-block" ng-show="formHolder.enrollment.age.$touched && formHolder.enrollment.age.$invalid">Age is required</span>
 					</div>
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.pob.$touched && formHolder.enrollment.pob.$invalid}">
 						<label>Place of Birth</label>
@@ -65,11 +70,6 @@
 							<option value="Female">Female</option>
 						</select>
 						<span class="help-block" ng-show="formHolder.enrollment.sex.$touched && formHolder.enrollment.sex.$invalid">Sex is required</span>
-					</div>
-					<div class="col-lg-2 form-group" ng-class="{'has-error': formHolder.enrollment.age.$touched && formHolder.enrollment.age.$invalid}">
-						<label>Age</label>
-						<input type="text" class="form-control" name="age" ng-model="enrollment.age" ng-disabled="btns.ok.btn" required>
-						<span class="help-block" ng-show="formHolder.enrollment.age.$touched && formHolder.enrollment.age.$invalid">Age is required</span>
 					</div>
 				</div>
 				<div class="row">
@@ -90,7 +90,7 @@
 						<span class="help-block" ng-show="formHolder.enrollment.status.$touched && formHolder.enrollment.status.$invalid">Status is required</span>
 					</div>
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.phone_number.$touched && formHolder.enrollment.phone_number.$invalid}">
-						<label>Phone Number</label>
+						<label>Contact Number</label>
 						<input type="text" class="form-control" name="phone_number" ng-model="enrollment.phone_number" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.phone_number.$touched && formHolder.enrollment.phone_number.$invalid">Phone Number is required</span>
 					</div>
@@ -126,10 +126,10 @@
 	<div class="col-lg-8">
 		<div class="form-example-wrap">
 			<div class="row">
-				<h4 class="m-t-0 header-title"><b>Parents</b></h4><hr>
+				<h4 class="m-t-0 header-title"><b>Parent's Information</b></h4><hr>
 				<div class="row">
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.father_name.$touched && formHolder.enrollment.father_name.$invalid}">
-						<label>Name of Father </label>
+						<label>Father's Name </label>
 						<input type="text" class="form-control" name="father_name" ng-model="enrollment.father_name" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.father_name.$touched && formHolder.enrollment.father_name.$invalid">This field is required</span>
 					</div>
@@ -139,14 +139,14 @@
 						<span class="help-block" ng-show="formHolder.enrollment.father_occupation.$touched && formHolder.enrollment.father_occupation.$invalid">This field is required</span>
 					</div>
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.father_number.$touched && formHolder.enrollment.father_number.$invalid}">
-						<label>Phone Number </label>
+						<label>Contact Number </label>
 						<input type="text" class="form-control" name="father_number" ng-model="enrollment.father_number" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.father_number.$touched && formHolder.enrollment.father_number.$invalid">This field is required</span>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.mother_name.$touched && formHolder.enrollment.mother_name.$invalid}">
-						<label>Name of Mother </label>
+						<label>Mother's Name </label>
 						<input type="text" class="form-control" name="mother_name" ng-model="enrollment.mother_name" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.mother_name.$touched && formHolder.enrollment.mother_name.$invalid">This field is required</span>
 					</div>
@@ -156,14 +156,14 @@
 						<span class="help-block" ng-show="formHolder.enrollment.mother_occupation.$touched && formHolder.enrollment.mother_occupation.$invalid">This field is required</span>
 					</div>
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.mother_number.$touched && formHolder.enrollment.mother_number.$invalid}">
-						<label>Phone Number </label>
+						<label>Contact Number </label>
 						<input type="text" class="form-control" name="mother_number" ng-model="enrollment.mother_number" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.mother_number.$touched && formHolder.enrollment.mother_number.$invalid">This field is required</span>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12 form-group" ng-class="{'has-error': formHolder.enrollment.address_of_parents.$touched && formHolder.enrollment.address_of_parents.$invalid}">
-						<label>Address of Parents </label>
+						<label>Parent's Address </label>
 						<input type="text" class="form-control" name="address_of_parents" ng-model="enrollment.address_of_parents" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.address_of_parents.$touched && formHolder.enrollment.address_of_parents.$invalid">This field is required</span>
 					</div>
@@ -188,7 +188,7 @@
 						<span class="help-block" ng-show="formHolder.enrollment.guardian_occupation.$touched && formHolder.enrollment.guardian_occupation.$invalid">This field is required</span>
 					</div>
 					<div class="col-lg-4 form-group" ng-class="{'has-error': formHolder.enrollment.guardian_number.$touched && formHolder.enrollment.guardian_number.$invalid}">
-						<label>Phone Number </label>
+						<label>Contact Number </label>
 						<input type="text" class="form-control" name="guardian_number" ng-model="enrollment.guardian_number" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.guardian_number.$touched && formHolder.enrollment.guardian_number.$invalid">This field is required</span>
 					</div>
@@ -219,7 +219,7 @@
 						<span class="help-block" ng-show="formHolder.enrollment.elem_school_name.$touched && formHolder.enrollment.elem_school_name.$invalid">This field is required</span>
 					</div>
 					<div class="col-lg-6 form-group" ng-class="{'has-error': formHolder.enrollment.elem_school_address.$touched && formHolder.enrollment.elem_school_address.$invalid}">
-						<label>Elementary School Addres </label>
+						<label>Address</label>
 						<input type="text" class="form-control" name="elem_school_address" ng-model="enrollment.elem_school_address" ng-disabled="btns.ok.btn" required>
 						<span class="help-block" ng-show="formHolder.enrollment.elem_school_address.$touched && formHolder.enrollment.elem_school_address.$invalid">This field is required</span>
 					</div>
@@ -238,22 +238,22 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 form-group">
-						<label>Tech-Voc School </label>
-						<input type="text" class="form-control" name="techvoc_school_name" ng-model="enrollment.techvoc_school_name" ng-disabled="btns.ok.btn">
-					</div>
-					<div class="col-lg-6 form-group">
-						<label>Address</label>
-						<input type="text" class="form-control" name="techvoc_school_address" ng-model="enrollment.techvoc_school_address" ng-disabled="btns.ok.btn">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6 form-group">
 						<label>Tertiary School </label>
 						<input type="text" class="form-control" name="tertiary_school_name" ng-model="enrollment.tertiary_school_name" ng-disabled="btns.ok.btn">
 					</div>
 					<div class="col-lg-6 form-group">
 						<label>Address</label>
 						<input type="text" class="form-control" name="tertiary_school_address" ng-model="enrollment.tertiary_school_address" ng-disabled="btns.ok.btn">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 form-group">
+						<label>Tech-Voc School </label>
+						<input type="text" class="form-control" name="techvoc_school_name" ng-model="enrollment.techvoc_school_name" ng-disabled="btns.ok.btn">
+					</div>
+					<div class="col-lg-6 form-group">
+						<label>Address</label>
+						<input type="text" class="form-control" name="techvoc_school_address" ng-model="enrollment.techvoc_school_address" ng-disabled="btns.ok.btn">
 					</div>
 				</div>
 				<hr>
@@ -315,7 +315,7 @@
 								<h5>Instructor: {{es.curriculum_data_id.instructor.fullname}}</h5>
 							</td>
 							<td>
-								<button class="btn btn-danger" ng-click="app.curriculum_data.delete(this,es)" ng-disabled="btns.ok.btn"><i class="fa fa-remove"></i></button>
+								<button class="btn btn-danger notika-btn-danger btn-lg" ng-click="app.curriculum_data.delete(this,es)" ng-disabled="btns.ok.btn"><i class="fa fa-remove"></i></button>
 							</td>
 						</tbody>
 					</table>
@@ -325,7 +325,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<button class="btn btn-danger notika-btn-danger btn-lg pull-right" ng-click="app.cancel(this)">{{btns.cancel.label}}</button>
-					<button class="btn btn-success notika-btn-success btn-lg pull-right" style="margin-right: 5px;" ng-click="app.edit(this)">Edit</button>
+					<button class="btn btn-primary notika-btn-primary btn-lg pull-right" style="margin-right: 5px;" ng-click="app.edit(this)">Edit</button>
 					<button class="btn btn-success notika-btn-success btn-lg pull-right" ng-disabled="btns.ok.btn" style="margin-right: 5px;" ng-click="app.save(this)">{{btns.ok.label}}</button>
 				</div>
 			</div>

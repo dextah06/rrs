@@ -1,6 +1,6 @@
 <?php include_once 'authentication.php'; ?> 
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="">
 
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Bootstrap CSS
+    <!-- font awesome CSS
 		============================================ -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- owl.carousel CSS
@@ -31,21 +31,47 @@
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="css/animate.css">
+	 <!-- summernote CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/summernote/summernote.css">
+    <!-- Range Slider CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/themesaller-forms.css">
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="css/normalize.css">
+	<!-- wave CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/wave/waves.min.css">
+    <link rel="stylesheet" href="css/wave/button.css">
     <!-- mCustomScrollbar CSS
 		============================================ -->
     <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- jvectormap CSS
+    <!-- Notika icon CSS-->
+	<link rel="stylesheet" href="css/notika-custom-icon.css">
+		
+		  <!-- bootstrap select CSS
 		============================================ -->
-    <link rel="stylesheet" href="css/jvectormap/jquery-jvectormap-2.0.3.css">
-    <!-- notika icon CSS
+    <link rel="stylesheet" href="css/bootstrap-select/bootstrap-select.css">
+    <!-- datapicker CSS
 		============================================ -->
+    <link rel="stylesheet" href="css/datapicker/datepicker3.css">
+    <!-- Color Picker CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/color-picker/farbtastic.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/chosen/chosen.css">
+    <!-- notification CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/notification/notification.css">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/dropzone/dropzone.css">
     <link rel="stylesheet" href="css/notika-custom-icon.css">
-    <!-- wave CSS
+    <!-- Data Table JS
 		============================================ -->
-    <link rel="stylesheet" href="css/wave/waves.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="css/main.css">
@@ -60,7 +86,7 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body ng-app="dashboard" ng-controller="dashboardCtrl" account-profile> 
+<body ng-app="curriculum" ng-controller="curriculumCtrl" account-profile>
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -117,42 +143,94 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
-                               <li class="active"><a href="index.html"><i class="notika-icon notika-house"></i> Home</a>
-								</li>
-								<li><a href="students.html"><i class="notika-icon notika-support"></i> Students</a>
-								</li>
-								<li><a href="disciplinary.html"><i class="notika-icon notika-file"></i> Disciplinary Records</a>
-								</li>
-								<li><a href="semestral.html"><i class="notika-icon notika-success"></i> Semestral Grades</a>
-								</li>
-                                
-                               
+                                <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
+                                    <ul class="collapse dropdown-header-top">
+                                        <li><a href="index.html">Dashboard One</a></li>
+                                        <li><a href="index-2.html">Dashboard Two</a></li>
+                                        <li><a href="index-3.html">Dashboard Three</a></li>
+                                        <li><a href="index-4.html">Dashboard Four</a></li>
+                                        <li><a href="analytics.html">Analytics</a></li>
+                                        <li><a href="widgets.html">Widgets</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#demoevent" href="#">Email</a>
+                                    <ul id="demoevent" class="collapse dropdown-header-top">
+                                        <li><a href="inbox.html">Inbox</a></li>
+                                        <li><a href="view-email.html">View Email</a></li>
+                                        <li><a href="compose-email.html">Compose Email</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#democrou" href="#">Interface</a>
+                                    <ul id="democrou" class="collapse dropdown-header-top">
+                                        <li><a href="animations.html">Animations</a></li>
+                                        <li><a href="google-map.html">Google Map</a></li>
+                                        <li><a href="data-map.html">Data Maps</a></li>
+                                        <li><a href="code-editor.html">Code Editor</a></li>
+                                        <li><a href="image-cropper.html">Images Cropper</a></li>
+                                        <li><a href="wizard.html">Wizard</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#demolibra" href="#">Charts</a>
+                                    <ul id="demolibra" class="collapse dropdown-header-top">
+                                        <li><a href="flot-charts.html">Flot Charts</a></li>
+                                        <li><a href="bar-charts.html">Bar Charts</a></li>
+                                        <li><a href="line-charts.html">Line Charts</a></li>
+                                        <li><a href="area-charts.html">Area Charts</a></li>
+                                    </ul>
+                                </li>
+                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables</a>
+                                    <ul id="demodepart" class="collapse dropdown-header-top">
+                                        <li><a href="normal-table.html">Normal Table</a></li>
+                                        <li><a href="data-table.html">Data Table</a></li>
+                                    </ul>
+                                </li>
                                 <li><a data-toggle="collapse" data-target="#forms" href="#">Forms</a>
                                     <ul id="forms" class="collapse dropdown-header-top">
-                                        <li><a href="add.html">Adding Form</a>
-                                </li>
-                                <li><a href="drop.html">Dropping Form</a>
-                                </li>
-								<li><a href="completion.html">Completion Form</a>
-                                </li>
+                                        <li><a href="add.html">Adding form</a></li>
+                                        <li><a href="form-components.html">Form Components</a></li>
+                                        <li><a href="form-examples.html">Form Examples</a></li>
                                     </ul>
                                 </li>
-                                <li><a data-toggle="collapse" data-target="#maintenance" href="#">Maintenance</a>
-                                    <ul id="maintenance" class="collapse dropdown-header-top">
-                                        <li><a href="accounts.html">Accounts</a>
-										</li>
-										<li><a href="instructor.html">Instructor</a>
-										</li>
-										<li><a href="courses.html">Courses</a>
-										</li>
-										<li><a href="curriculum.html">Curriculum</a>
-										</li>
-										<li><a href="code.html">Code of Discipline</a>
-										</li>
+                                <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">App views</a>
+                                    <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
+                                        <li><a href="notification.html">Notifications</a>
+                                        </li>
+                                        <li><a href="alert.html">Alerts</a>
+                                        </li>
+                                        <li><a href="modals.html">Modals</a>
+                                        </li>
+                                        <li><a href="buttons.html">Buttons</a>
+                                        </li>
+                                        <li><a href="tabs.html">Tabs</a>
+                                        </li>
+                                        <li><a href="accordion.html">Accordion</a>
+                                        </li>
+                                        <li><a href="dialog.html">Dialogs</a>
+                                        </li>
+                                        <li><a href="popovers.html">Popovers</a>
+                                        </li>
+                                        <li><a href="tooltips.html">Tooltips</a>
+                                        </li>
+                                        <li><a href="dropdown.html">Dropdowns</a>
+                                        </li>
                                     </ul>
                                 </li>
-                               
-                               
+                                <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
+                                    <ul id="Pagemob" class="collapse dropdown-header-top">
+                                        <li><a href="contact.html">Contact</a>
+                                        </li>
+                                        <li><a href="invoice.html">Invoice</a>
+                                        </li>
+                                        <li><a href="typography.html">Typography</a>
+                                        </li>
+                                        <li><a href="color.html">Color</a>
+                                        </li>
+                                        <li><a href="login-register.html">Login Register</a>
+                                        </li>
+                                        <li><a href="404.html">404 Page</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -167,7 +245,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li class="active"><a href="index.html"><i class="notika-icon notika-house"></i> Home</a>
+                        <li><a href="index.html"><i class="notika-icon notika-house"></i> Home</a>
                         </li>
                         <li><a href="students.html"><i class="notika-icon notika-support"></i> Students</a>
                         </li>
@@ -175,31 +253,19 @@
                         </li>
                         <li><a href="semestral.html"><i class="notika-icon notika-success"></i> Semestral Grades</a>
                         </li>
-                        <li><a data-toggle="tab" href="#forms"><i class="notika-icon notika-form"></i> Forms</a>
+                        <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> Forms</a>
                         </li>
-                        <li><a data-toggle="tab" href="#maintenance"><i class="notika-icon notika-settings"></i> Maintenance</a>
+                        <li  class="active"><a data-toggle="tab" href="#maintenance"><i class="notika-icon notika-settings"></i> Maintenance</a>
                         </li>
+                        
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-								<li><a href="index.html">Vision, Mission, Educational Philosophy</a></li>
-								<li><a href="index2.html">Statistics</a></li>
-                            </ul>
-                        </div>
-                        <div id="students" class="tab-pane notika-tab-menu-bg animated flipInX"><a href="menu.html"></a>
-                            <ul class="notika-main-menu-dropdown">
-                            </ul>
-                        </div>
-                        <a href="asd.html"><div id="records" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                            </ul>
-                        </div></a>
-                        <div id="grades" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                            </ul>
-                        </div>
-                        <div id="forms" class="tab-pane notika-tab-menu-bg animated flipInX">
+                     
+                        
+                       
+                        
+                       
+                        <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="add.html">Adding Form</a>
                                 </li>
@@ -209,7 +275,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="maintenance" class="tab-pane notika-tab-menu-bg animated flipInX">
+                        
+                        <div id="maintenance" class="tab-pane active notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="accounts.html">Accounts</a>
                                 </li>
@@ -223,90 +290,39 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="officers" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="">Club Officers</a>
-                                </li>
-                                <li><a href="">SBO Officers</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Main Menu area End-->
+	<!-- Breadcomb area Start-->
 	
+	<!-- Breadcomb area End-->
+    <!-- Form Element area Start-->
 	
-	<div class="breadcomb-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-					<div class="breadcomb-list">
-						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-								<div class="breadcomb-wp">
-									<div class="breadcomb-icon">
-										<i class="fa fa-eye"></i>
-									</div>
-									<div class="breadcomb-ctn">
-										<h2>Vision</h2>
-										<p style="text-align:justify;">La Union Colleges of Science and Technology, Inc., envisions itself to be a learning community characterized by academic excellence, creative activity, social responsibility and intergrity.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-					<div class="breadcomb-list">
-						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-								<div class="breadcomb-wp">
-									<div class="breadcomb-icon">
-										<i class="fa fa-bullseye"></i>
-									</div>
-									<div class="breadcomb-ctn">
-										<h2>Mission</h2>
-										<p style="text-align:justify;">La Union Colleges of Science and Technology, Inc. commits itself to provide well-rounded educational trainings and experiences to students whose knowledge, skills and value system will enable them to adjust to an ever changing society, be competitive in the global market and contribute to the improvement of the quality of life.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+    <!-- Data Table area Start-->
+		<div class="data-table-area">
+			<div class="container">
+
+				<!-- Page-Title -->
+			
+				<div class="row">
+					<div id="content"></div>
 			</div>
-			<br>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="breadcomb-list">
-						<div class="row">
-							<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
-								<div class="breadcomb-wp">
-									<div class="breadcomb-icon">
-										<i class="fa fa-bullseye"></i>
-									</div>
-									<div class="breadcomb-ctn">
-										<h2>EDUCATIONAL PHILOSOPHY</h2>
-										<p style="text-align:justify;">The La Union Colleges of Science and Technology, Inc. adheres to the fulfillment of improving the quality of life of the people by giving direction to individual’s basic potentialities and talents; producing high caliber manpower that jibes with the requirements, of the services area and the industries; inculcating values conforming to the ethical standards of society; accelerating active quest for information and producing new ideas needed to adjust to an ever-changing society.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+			
+		</div> <!-- container -->
+				   
+	</div> <!-- content -->
+    <!-- Data Table area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2018 . All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                        <p>Copyright © 2018 
+. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
                     </div>
                 </div>
             </div>
@@ -342,53 +358,88 @@
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- jvectormap JS
-		============================================ -->
-    <script src="js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="js/jvectormap/jvectormap-active.js"></script>
     <!-- sparkline JS
 		============================================ -->
     <script src="js/sparkline/jquery.sparkline.min.js"></script>
     <script src="js/sparkline/sparkline-active.js"></script>
-    <!-- sparkline JS
+    <!-- flot JS
 		============================================ -->
     <script src="js/flot/jquery.flot.js"></script>
     <script src="js/flot/jquery.flot.resize.js"></script>
-    <script src="js/flot/curvedLines.js"></script>
     <script src="js/flot/flot-active.js"></script>
     <!-- knob JS
 		============================================ -->
     <script src="js/knob/jquery.knob.js"></script>
     <script src="js/knob/jquery.appear.js"></script>
     <script src="js/knob/knob-active.js"></script>
-    <!--  wave JS
+	<!-- Input Mask JS
 		============================================ -->
-    <script src="js/wave/waves.min.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
+	<!-- icheck JS
+		============================================ -->
+    <script src="js/icheck/icheck.min.js"></script>
+    <script src="js/icheck/icheck-active.js"></script>
+	<!--  wave JS
+		============================================ -->
+	<script src="js/wave/waves.min.js"></script>
     <script src="js/wave/wave-active.js"></script>
+	 <!-- rangle-slider JS
+		============================================ -->
+    <script src="js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+    <script src="js/rangle-slider/rangle-active.js"></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/datapicker/datepicker-active.js"></script>
+    <!--  Chat JS
+		============================================ -->
+    <script src="js/chat/jquery.chat.js"></script>
     <!--  todo JS
 		============================================ -->
     <script src="js/todo/jquery.todo.js"></script>
+	 <!-- bootstrap select JS
+		============================================ -->
+    <script src="js/bootstrap-select/bootstrap-select.js"></script>
+    <!--  color-picker JS
+		============================================ -->
+    <script src="js/color-picker/farbtastic.min.js"></script>
+    <script src="js/color-picker/color-picker.js"></script>
+    <!--  notification JS
+		============================================ -->
+    <script src="js/notification/bootstrap-growl.min.js"></script>
+    <script src="js/notification/notification-active.js"></script>
+    <!--  summernote JS
+		============================================ -->
+    <script src="js/summernote/summernote-updated.min.js"></script>
+    <script src="js/summernote/summernote-active.js"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src="js/dropzone/dropzone.js"></script>
+	<!--  chosen JS
+		============================================ -->
+    <script src="js/chosen/chosen.jquery.js"></script>
+	<!--  wave JS
+		============================================ -->
+    <script src="js/wave/waves.min.js"></script>
+    <script src="js/wave/wave-active.js"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="js/plugins.js"></script>
-	<!--  Chat JS
+    <!-- Data Table JS
 		============================================ -->
-    <script src="js/chat/moment.min.js"></script>
-    <script src="js/chat/jquery.chat.js"></script>
+    <script src="js/data-table/jquery.dataTables.min.js"></script>
+    <script src="js/data-table/data-table-act.js"></script>
     <!-- main JS
 		============================================ -->
     <script src="js/main.js"></script>
-	<!-- tawk chat JS
-		============================================ -->
-    <!-- <script src="js/tawk-chat.js"></script> -->
 	
 	<!-- dependencies -->
 	<link rel="stylesheet" href="angular/modules/bootbox/bs4-fix.css">	
 	<script src="angular/modules/bootbox/bootbox.min.js"></script>
 	<script src="angular/modules/growl/jquery.bootstrap-growl.min.js"></script>
 	<script src="angular/modules/blockui/jquery.blockUI.js"></script>
-	
+
 	<!-- angular -->	
 	<script src="angular/angular.min.js"></script>
 	<script src="angular/angular-route.min.js"></script>
@@ -402,10 +453,10 @@
 	<script src="angular/modules/account/account.js"></script>
 	<script src="angular/modules/validation/validate.js"></script>
 	<script src="angular/modules/post/window-open-post.js"></script>	
-	<script src="modules/dashboard.js"></script>
+	<script src="modules/curriculum.js"></script>
 
 	<!-- controller -->
-	<script src="controllers/dashboard.js"></script>
+	<script src="controllers/curriculum.js"></script>
 	
 </body>
 

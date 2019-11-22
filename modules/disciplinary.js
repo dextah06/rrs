@@ -109,7 +109,7 @@ angular.module('app-module', ['bootstrap-modal','ui.bootstrap','block-ui','boots
 			});			
 			
 			$('#content').html(loading);
-			$('#content').load('lists/disciplinarys.html', function() {
+			$('#content').load('lists/disciplinary.html', function() {
 				$timeout(function() { $compile($('#content')[0])(scope); },100);								
 				// instantiate datable
 				$timeout(function() {

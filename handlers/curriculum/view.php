@@ -17,7 +17,7 @@ $curriculum_datas = $con->getData("SELECT * FROM curriculum_data WHERE curriculu
 foreach($curriculum_datas as $key => $scd){
 	
 	$instructor = $con->getData("SELECT id, CONCAT(firstname,' ',lastname) fullname FROM instructor WHERE id  = ".$scd['instructor']);
-	$curriculum_datas[$key]['instructor'] = $instructor[0];
+	$curriculum_datas[$key]['instructor'] = $instructor;
 	
 };
 $curriculum[0]['curriculum_datas'] = $curriculum_datas;

@@ -1,4 +1,4 @@
-angular.module('snapshot-module',['bootstrap-modal']).factory('snapshot',function($timeout,bootstrapModal) {
+angular.module('snapshot-module', ['bootstrap-modal','bootstrap-growl']).factory('snapshot',function($timeout,bootstrapModal,growl) {
 	
 	function snapshot() {
 		
@@ -9,7 +9,7 @@ angular.module('snapshot-module',['bootstrap-modal']).factory('snapshot',functio
 			self.view = view;
 			self.data = null;
 			
-			var views = {front: 'Front View'};
+			var views = {left: 'Left Side View', front: 'Front View', right: 'Right Side View', full: 'Full Body'};
 			
 			self.width = 260; 
 			self.height = 0;
@@ -25,9 +25,16 @@ angular.module('snapshot-module',['bootstrap-modal']).factory('snapshot',functio
 				if (self.data == null) self.data = 'pictures/avatar.png';
 				self.photo.setAttribute('src', self.data);
 				
+				$.ajax({
+				type: "POST",
+				url: "handlers/upload-photos.php",
+				data: {id: scope.enrollment.id, pictures: scope.pictures}
+				}).done(function(reponse) {
+					
+				});
 			};
 			
-			bootstrapModal.box(scope,views[view],'dialogs/take-photo.html',onOk);
+			bootstrapModal.box(scope,views[view],'forms/take-photo.html',onOk);
 			
 			$timeout(function() {
 				startup();
@@ -47,17 +54,17 @@ angular.module('snapshot-module',['bootstrap-modal']).factory('snapshot',functio
 			
 		};
 
-		self.upload = function(scope) {
+		/* self.upload = function(scope) {
 
 			$.ajax({
 				type: "POST",
-				url: "handlers/students/upload-photos.php",
-				data: {id: scope.student.id, pictures: scope.pictures}
+				url: "handlers/upload-photos.php",
+				data: {detainee_id: scope.detainee_info.detainee_id, pictures: scope.pictures}
 			}).done(function(reponse) {
 				
 			});
 			
-		};
+		}; */
 		
 		  function startup() {
 			self.video = document.getElementById('video');
@@ -78,12 +85,14 @@ angular.module('snapshot-module',['bootstrap-modal']).factory('snapshot',functio
 				  self.video.mozSrcObject = stream;
 				} else {
 				  var vendorURL = window.URL || window.webkitURL;
-				  self.video.src = vendorURL.createObjectURL(stream);
+				  // self.video.src = vendorURL.createObjectURL(stream);
+				  video.srcObject=stream;
 				}
 				self.video.play();
 			  },
 			  function(err) {
 				console.log("An error occured! " + err);
+					growl.show('alert alert-danger alert-dismissible fade in',{from: 'top', amount: 55},'There is no connected camera.');
 			  }
 			);
 

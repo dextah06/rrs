@@ -224,7 +224,7 @@ angular.module('app-module', ['bootstrap-modal','ui.bootstrap','block-ui','boots
 				if (scope.enrollment.id == 0) growl.show('btn btn-success',{from: 'top', amount: 55},'New student info successfully added');				
 				else growl.show('btn btn-success',{from: 'top', amount: 55},'Student info successfully updated');				
 				mode(scope,scope.enrollment);								
-				snapshot.upload(scope);
+				// snapshot.upload(scope);
 				
 			}, function error(response) {
 				
@@ -259,7 +259,18 @@ angular.module('app-module', ['bootstrap-modal','ui.bootstrap','block-ui','boots
 			};
 
 			bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});
-				
+			
+		};
+		
+		function imageExists(image_url){
+
+			var http = new XMLHttpRequest();
+
+			http.open('HEAD', image_url, false);
+			http.send();
+
+			return http.status != 404;
+
 		};
 		
 		self.dob = function(scope) {

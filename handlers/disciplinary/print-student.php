@@ -10,7 +10,7 @@ $id = $_POST['id'];
 
 $disciplinary = $con->getData("SELECT * FROM disciplinary WHERE id = $_POST[id]");
 
-$disciplinary_datas = $con->getData("SELECT * FROM disciplinary_data WHERE disciplinary_id = ".$disciplinary['id']);
+$disciplinary_datas = $con->getData("SELECT * FROM disciplinary_data WHERE disciplinary_id = ".$disciplinary[0]['id']);
 foreach($disciplinary_datas as $key => $disciplinary_data){
 	
 	$code_n = $con->getData("SELECT * FROM codes WHERE id  = ".$disciplinary_data['code_number']);
